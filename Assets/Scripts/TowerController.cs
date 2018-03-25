@@ -3,15 +3,18 @@
 public class TowerController : MonoBehaviour {
 
 	public GameObject projectilePrefab; 	
+	[Range(0,3)]
 	public float reloadTime = 1f;
 
 	private float lastShotTime;
 
-	void Update () {
+	void Update () 
+	{
 		Shoot();
 	}
 
-	private void Shoot () {
+	private void Shoot () 
+	{
 		float currentTime = Time.time;
 		if (currentTime > lastShotTime + reloadTime) {
 			lastShotTime = currentTime;

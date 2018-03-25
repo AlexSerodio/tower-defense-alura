@@ -6,7 +6,6 @@ public class EnemyController : MonoBehaviour {
 	[SerializeField]
 	private int health;
 
-	// Use this for initialization
 	void Start () 
 	{
 

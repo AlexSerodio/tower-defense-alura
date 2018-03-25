@@ -9,7 +9,9 @@ public class Projectile : MonoBehaviour {
 
 	void Start() 
 	{
-		target = GameObject.Find("Enemy");
+		GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
+		if (targets.Length > 0)
+			target = targets[0];
 		SelfDestroy(5f);
 	}
 
@@ -30,10 +32,6 @@ public class Projectile : MonoBehaviour {
 		transform.rotation = Quaternion.LookRotation(target.transform.position - transform.position);
 	}
 
-	/// <summary>
-	/// OnTriggerEnter is called when the Collider other enters the trigger.
-	/// </summary>
-	/// <param name="other">The other Collider involved in this collision.</param>
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Enemy")) {

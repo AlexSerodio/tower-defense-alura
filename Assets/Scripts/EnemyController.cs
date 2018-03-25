@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour {
 
 	void Start () 
 	{
-
 		NavMeshAgent agent = GetComponent<NavMeshAgent>();
 		GameObject endOfTheRoad = GameObject.Find("EndOfTheRoad");
 		agent.SetDestination (endOfTheRoad.transform.position);

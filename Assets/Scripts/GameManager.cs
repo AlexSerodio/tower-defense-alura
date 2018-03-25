@@ -2,13 +2,18 @@
 
 public class GameManager : MonoBehaviour {
 
-	[SerializeField]
-	private GameObject towerPrefab;
+	[SerializeField] private GameObject towerPrefab;
+	[SerializeField] private GameObject gameOverText;
+	[SerializeField] private PlayerController player;
 
 	void Update () 
 	{
-		if (Fire1Click())
-			BuildTower();
+		if (GameOver ()) {
+			gameOverText.SetActive (true);
+		} else {
+			if (Fire1Click())
+				BuildTower();
+		}
 	}
 
 	private bool Fire1Click ()
@@ -36,4 +41,8 @@ public class GameManager : MonoBehaviour {
 		return hit;
 	}
 
+	private bool GameOver () 
+	{
+		return !player.IsAlive();
+	}
 }

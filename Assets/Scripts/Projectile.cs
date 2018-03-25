@@ -7,7 +7,8 @@ public class Projectile : MonoBehaviour {
 	private float speed = 10f;
 	private EnemyController target;
 
-	public EnemyController Target {
+	public EnemyController Target 
+	{
 		get { 
 			return target;
 		}

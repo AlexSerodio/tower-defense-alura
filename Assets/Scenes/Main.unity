@@ -243,6 +243,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1838276632442008, guid: b83dffb67992c8d47aec177d23d47241,
     type: 2}
   reloadTime: 1
+  rangeRadius: 5
 --- !u!1 &321275134
 GameObject:
   m_ObjectHideFlags: 0

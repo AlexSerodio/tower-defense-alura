@@ -5,13 +5,19 @@ public class Projectile : MonoBehaviour {
 	[SerializeField]
 	private int damage;
 	private float speed = 10f;
-	private GameObject target;
+	private EnemyController target;
+
+	public EnemyController Target {
+		get { 
+			return target;
+		}
+		set { 
+			target = value;
+		}
+	}
 
 	void Start() 
 	{
-		GameObject[] targets = GameObject.FindGameObjectsWithTag("Enemy");
-		if (targets.Length > 0)
-			target = targets[0];
 		SelfDestroy(5f);
 	}
 

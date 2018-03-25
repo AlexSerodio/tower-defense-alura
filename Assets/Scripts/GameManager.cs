@@ -1,0 +1,39 @@
+﻿using UnityEngine;
+
+public class GameManager : MonoBehaviour {
+
+	[SerializeField]
+	private GameObject towerPrefab;
+
+	void Update () 
+	{
+		if (Fire1Click())
+			BuildTower();
+	}
+
+	private bool Fire1Click ()
+	{
+		return Input.GetMouseButtonDown (0);
+	}
+
+	private void BuildTower() 
+	{
+		Vector3 clickPosition = Input.mousePosition;
+		RaycastHit hit = GetPosition(clickPosition);
+
+		if (hit.collider != null) {
+			Vector3 newTowerPosition = hit.point;
+			Instantiate (towerPrefab, newTowerPosition, Quaternion.identity);
+		}
+	}
+
+	private RaycastHit GetPosition(Vector3 startPoint)
+	{
+		Ray ray = Camera.main.ScreenPointToRay(startPoint);
+		RaycastHit hit;
+		Physics.Raycast(ray, out hit, 100f);
+
+		return hit;
+	}
+
+}

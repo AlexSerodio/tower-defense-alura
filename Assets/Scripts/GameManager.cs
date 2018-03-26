@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
 	[SerializeField] private GameObject towerPrefab;
 	[SerializeField] private GameObject gameOverText;
 	[SerializeField] private PlayerController player;
+
+	void Start ()
+	{
+		gameOverText.SetActive(false);
+	}
 
 	void Update () 
 	{
@@ -44,5 +50,9 @@ public class GameManager : MonoBehaviour {
 	private bool GameOver () 
 	{
 		return !player.IsAlive();
+	}
+
+	public void RestartGame (int scene) {
+		SceneManager.LoadScene(scene);
 	}
 }

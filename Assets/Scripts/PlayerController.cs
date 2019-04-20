@@ -5,8 +5,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private int health;
 
-	public int Health 
-	{
+	public int Health {
 		get { 
 			return health;
 		}
@@ -15,14 +14,12 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	public void LoseHealth () 
-	{
-		if (IsAlive())
+	public void LoseHealth() {
+		if(IsAlive())
 			health--;
 	}
 
-	public bool IsAlive () 
-	{
+	public bool IsAlive() {
 		return health > 0;
 	}
 

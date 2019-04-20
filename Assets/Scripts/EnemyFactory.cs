@@ -7,15 +7,13 @@ public class EnemyFactory : MonoBehaviour {
 	private float instantiationTime = 2f;
 	private float lastInstantiationTime;
 
-	void Update () 
-	{
+	void Update () {
 		InstantiateEnemy();
 	}
 
-	private void InstantiateEnemy () 
-	{
+	private void InstantiateEnemy () {
 		float currentTime = Time.time;
-		if (currentTime > lastInstantiationTime + instantiationTime) {
+		if(currentTime > lastInstantiationTime + instantiationTime) {
 			lastInstantiationTime = currentTime;
 			Instantiate(enemy, transform.position, Quaternion.identity);
 		}

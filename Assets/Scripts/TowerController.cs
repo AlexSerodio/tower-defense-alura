@@ -10,17 +10,15 @@ public class TowerController : MonoBehaviour {
 	private float rangeRadius;
 	private float lastShotTime;
 
-	void Update () 
-	{
+	void Update() {
 		EnemyController target = ChooseTarget();
-		if (target != null)
+		if(target != null)
 			Shoot(target);
 	}
 
-	private void Shoot (EnemyController enemy) 
-	{
+	private void Shoot(EnemyController enemy) {
 		float currentTime = Time.time;
-		if (currentTime > lastShotTime + reloadTime) {
+		if(currentTime > lastShotTime + reloadTime) {
 			lastShotTime = currentTime;
 			Transform shooterPoint = this.transform.Find("TowerCannon/ShooterPoint");
 			GameObject newProjectile = Instantiate(projectilePrefab, shooterPoint.position, Quaternion.identity);
@@ -29,18 +27,16 @@ public class TowerController : MonoBehaviour {
 		}
 	}
 
-	private EnemyController ChooseTarget () 
-	{ 
-		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-		foreach (GameObject enemy in enemies) {
-			if (InRange(enemy))
+	private EnemyController ChooseTarget() { 
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach(GameObject enemy in enemies) {
+			if(IsInRange(enemy))
 				return enemy.GetComponent<EnemyController>();
 		}
 		return null;
 	}
 
-	private bool InRange (GameObject enemy) 
-	{
+	private bool IsInRange(GameObject enemy) {
 		Vector3 towerPositionOnPlane = Vector3.ProjectOnPlane(transform.position, Vector3.up);
 		Vector3 enemyPositionOnPlane = Vector3.ProjectOnPlane(enemy.transform.position, Vector3.up);
 

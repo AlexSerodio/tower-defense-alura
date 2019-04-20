@@ -3,17 +3,15 @@ using UnityEngine.UI;
 
 public class HealthHandle : MonoBehaviour {
 
-	private Text healthText;
 	[SerializeField]
 	private PlayerController player;
+	private Text healthText;
 
-	void Start () 
-	{
-		healthText = GetComponent<Text> ();
+	void Start() {
+		healthText = GetComponent<Text>();
 	}
 
-	void Update () 
-	{
+	void Update() {
 		healthText.text = "Vida: " + player.Health;
 	}
 }
